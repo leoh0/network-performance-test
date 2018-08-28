@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nodejs-simple-deployment
+spec:
+  replicas: 20 
+  template:
+    metadata:
+      labels:
+        app: nodejs-simple-server
+    spec:
+      containers:
+      - name: nodejs-simple-server
+        image: heroku/nodejs-hello-world 
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8000
